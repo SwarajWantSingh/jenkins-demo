@@ -1,5 +1,9 @@
 pipeline {
     agent any 
+    tools {
+        maven 'mymaven'
+        jdk 'myjdk'
+    }
     stages {
         stage('Clone') {
             steps {
@@ -65,7 +69,7 @@ pipeline {
             }
          post{
                 success {
-                    emailext body: 'Successfully completed pipeline project with archiving the artifacts', subject: 'Pipeline was successfull', to: 'vathsala.hn22@gmail.com'
+                    emailext body: 'Successfully completed pipeline project with archiving the artifacts', subject: 'Pipeline was successfull', to: 'swarajwant@gmail.com'
                 }
     }
 }
